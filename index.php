@@ -11,20 +11,7 @@ Milestone 2
 Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale
 */
 
-$passwordLength = $_GET['characters'];
-
-function getRandomPassword($length)
-{
-    $allCharacters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!$%/()=?^*-_[]<>';
-    $randomPassword = '';
-
-    for ($i = 0; $i < $length; $i++) {
-        $index = rand(0, strlen($allCharacters) - 1);
-        $randomPassword .= $allCharacters[$index];
-    }
-
-    return $randomPassword;
-}
+include __DIR__ . '/functions.php'
 
 ?>
 
@@ -42,11 +29,11 @@ function getRandomPassword($length)
 <body>
 
     <div class="container">
-        <h1>Password Generator</h1>
+        <h1 class="text-center">Password Generator</h1>
         <form action="" method="get">
             <div class="mb-3">
                 <label for="characters" class="form-label">The most secure password generator</label>
-                <input type="number" class="form-control" name="characters" id="characters" aria-describedby="helpId" />
+                <input type="number" class="form-control" name="characters" id="characters" aria-describedby="helpId" min=1 />
                 <small id="helpId" class="form-text text-muted">Type the length of the password that you want generate</small>
                 <input name="Generate" id="Generate" class="btn btn-primary d-block my-2" type="submit" value="Generate" />
             </div>
