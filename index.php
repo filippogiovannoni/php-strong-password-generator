@@ -9,9 +9,13 @@ Creare un form che invii in GET la lunghezza della password. Una nostra funzione
 
 Milestone 2
 Verificato il corretto funzionamento del nostro codice, spostiamo la logica in un file functions.php che includeremo poi nella pagina principale
-*/
 
-include __DIR__ . '/functions.php'
+Milestone 3 (BONUS)
+Invece di visualizzare la password nella index, effettuare un redirect ad una pagina dedicata che tramite $_SESSION recupererà la password da mostrare all’utente.
+
+Milestone 4 (BONUS)
+Gestire ulteriori parametri per la password: quali caratteri usare fra numeri, lettere e simboli. Possono essere scelti singolarmente (es. solo numeri) oppure possono essere combinati fra loro (es. numeri e simboli, oppure tutti e tre insieme). Dare all’utente anche la possibilità di permettere o meno la ripetizione di caratteri uguali.
+*/
 
 ?>
 
@@ -30,7 +34,7 @@ include __DIR__ . '/functions.php'
 
     <div class="container">
         <h1 class="text-center">Password Generator</h1>
-        <form action="" method="get">
+        <form action="server.php" method="post">
             <div class="mb-3">
                 <label for="characters" class="form-label">The most secure password generator</label>
                 <input type="number" class="form-control" name="characters" id="characters" aria-describedby="helpId" min=1 />
@@ -38,10 +42,6 @@ include __DIR__ . '/functions.php'
                 <input name="Generate" id="Generate" class="btn btn-primary d-block my-2" type="submit" value="Generate" />
             </div>
         </form>
-
-        <span class="badge rounded-pill text-bg-success"><?= 'Generated Password: ' .  getRandomPassword($passwordLength) ?></span>
-
-
     </div>
 
 </body>

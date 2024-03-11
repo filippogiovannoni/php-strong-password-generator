@@ -1,5 +1,4 @@
 <?php
-$passwordLength = $_GET['characters'];
 
 function getRandomPassword($length)
 {
